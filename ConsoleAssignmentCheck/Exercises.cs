@@ -98,7 +98,7 @@ namespace ConsoleAssignmentCheck
             double circleArea = Math.PI * Math.Pow(input, 2);
             double sphereVolume = (4.0 / 3) * Math.PI * Math.Pow(input, 3);
             Console.WriteLine("Area of the circle is: {0}\nVolume of the sphere is: {1}", circleArea, sphereVolume);
-            Console.ReadKey(); 
+            Console.ReadKey();
         }
         public void Exercise8()
         {
@@ -118,10 +118,10 @@ namespace ConsoleAssignmentCheck
         }
         public void Exercise10()
         {
-           bool isAlive = true;
+            bool isAlive = true;
             while (isAlive)
             {
-                Console.Clear(); 
+                Console.Clear();
                 Console.WriteLine("Hello user, please select one of these three options:\n1:Division \n2:Exercise 4 \n3:Change foreground color\n-1 to exit");
                 bool valid = int.TryParse(Console.ReadLine(), out int input);
                 if (!valid)
@@ -135,17 +135,17 @@ namespace ConsoleAssignmentCheck
                         Console.Write("Please give me another number: ");
                         int.TryParse(Console.ReadLine(), out int b);
                         Console.Write(Division(a, b));
-                        Console.ReadKey(); 
+                        Console.ReadKey();
                         break;
                     case 2:
                         Exercise4();
                         break;
                     case 3:
-                        ChangeForegroundColor(); 
+                        ChangeForegroundColor();
                         break;
                     case -1:
                         isAlive = false;
-                        break;                       
+                        break;
                     default:
                         break;
                 }
@@ -156,17 +156,17 @@ namespace ConsoleAssignmentCheck
         public void Exercise11()
         {
             Console.Write("Please enter a number: ");
-            
+
             if (int.TryParse(Console.ReadLine(), out int input))
             {
                 IterationMethod(input);
             }
             else
-            Console.WriteLine("Please enter a numeric value");
+                Console.WriteLine("Please enter a numeric value");
 
             Console.ReadKey();
             Console.ResetColor();
-        }  
+        }
         public void Exercise12()
         {
             for (int i = 1; i <= 10; i++)
@@ -177,7 +177,7 @@ namespace ConsoleAssignmentCheck
                 }
                 Console.WriteLine();
             }
-            Console.ReadKey(); 
+            Console.ReadKey();
         }
         public void Exercise13()
         {
@@ -187,30 +187,54 @@ namespace ConsoleAssignmentCheck
             int numberOfGuesses = 0;
             while (!correctGuess)
             {
-                
+
                 Console.Write("Please guess a number between 1 and 500: ");
                 int.TryParse(Console.ReadLine(), out int guess);
 
                 if (guess > randomNumber)
                 {
-                    Console.WriteLine("Your guess of {0} was too high, please try again!",guess);
+                    Console.WriteLine("Your guess of {0} was too high, please try again!", guess);
                     numberOfGuesses++;
                 }
-                else if(guess < randomNumber)
+                else if (guess < randomNumber)
                 {
-                    Console.WriteLine("Your guess of {0} was too low, please try again!",guess);
+                    Console.WriteLine("Your guess of {0} was too low, please try again!", guess);
                     numberOfGuesses++;
                 }
                 else
                 {
                     numberOfGuesses++;
-                    Console.WriteLine("Your guess of {0} is correct!! It took you {1} tries!",guess,numberOfGuesses);
+                    Console.WriteLine("Your guess of {0} is correct!! It took you {1} tries!", guess, numberOfGuesses);
                     Console.ReadKey();
                     correctGuess = true;
                 }
             }
         }
+        public void Exercise14()
+        {
+            List<int> listOfNumbers = new List<int>();
+            bool isAlive = true;
+            int numberOfNumbers = 0;
+            while (isAlive)
+            {
+                Console.Write("Please enter a number:");
+                bool isAllowed = int.TryParse(Console.ReadLine(), out int number);
 
+                if (!isAllowed)
+                    number = 0;
+                if (number != -1)
+                {
+                    listOfNumbers.Add(number);
+                    numberOfNumbers++;
+                }
+                else
+                    isAlive = false;
+            }
+            Console.Write("The sum of the added numbers are: {0} \nThe average of the added numbers is: {1}", listOfNumbers.Sum(),listOfNumbers.Average());
+            Console.ReadKey();
+
+
+        }
 
         private void IterationMethod(int input)
         {
@@ -224,7 +248,7 @@ namespace ConsoleAssignmentCheck
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Green; 
+                        Console.ForegroundColor = ConsoleColor.Green;
                     }
                     Console.WriteLine(i);
                 }
