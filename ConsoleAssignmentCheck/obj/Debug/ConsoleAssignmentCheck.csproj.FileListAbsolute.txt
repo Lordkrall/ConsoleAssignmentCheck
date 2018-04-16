@@ -1,0 +1,7 @@
+c:\users\lexicon\Source\Repos\ConsoleAssignmentCheck\ConsoleAssignmentCheck\bin\Debug\ConsoleAssignmentCheck.exe.config
+c:\users\lexicon\Source\Repos\ConsoleAssignmentCheck\ConsoleAssignmentCheck\bin\Debug\ConsoleAssignmentCheck.exe
+c:\users\lexicon\Source\Repos\ConsoleAssignmentCheck\ConsoleAssignmentCheck\bin\Debug\ConsoleAssignmentCheck.pdb
+c:\users\lexicon\Source\Repos\ConsoleAssignmentCheck\ConsoleAssignmentCheck\obj\Debug\ConsoleAssignmentCheck.csprojResolveAssemblyReference.cache
+c:\users\lexicon\Source\Repos\ConsoleAssignmentCheck\ConsoleAssignmentCheck\obj\Debug\ConsoleAssignmentCheck.csproj.CoreCompileInputs.cache
+c:\users\lexicon\Source\Repos\ConsoleAssignmentCheck\ConsoleAssignmentCheck\obj\Debug\ConsoleAssignmentCheck.exe
+c:\users\lexicon\Source\Repos\ConsoleAssignmentCheck\ConsoleAssignmentCheck\obj\Debug\ConsoleAssignmentCheck.pdb
