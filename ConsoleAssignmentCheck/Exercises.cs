@@ -235,6 +235,54 @@ namespace ConsoleAssignmentCheck
 
 
         }
+        public void Exercise15()
+        {
+            int number = 0;
+            int sum = 0;
+            Console.Write("Please input a number:");
+            int.TryParse(Console.ReadLine(), out number);
+            for (int i = 1; i < number; i++)
+            {
+                if(number % i == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+            Console.WriteLine("----------------------------------------------");
+            for (int i = 1; i < number; i++)
+            {
+                sum = 0;
+                for (int j = 1; j < i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        sum = sum + j;
+                    }
+                }
+                if (sum == i)
+                    Console.WriteLine(i);
+            }
+            Console.ReadKey();
+        }
+        public void Exercise16()
+        {
+            int a = 0;
+            int b = 1;
+            int c = 0;
+            int number = 0;
+            Console.Write("Please insert a number:");
+            int.TryParse(Console.ReadLine(), out number);          
+            
+            Console.Write("{0} {1}", a, b);
+            for (int i = 2; i < number; i++)
+            {
+                c = a + b;
+                Console.Write(" {0}", c);
+                a = b;
+                b = c;
+            }
+            Console.ReadKey();
+        }
 
         private void IterationMethod(int input)
         {

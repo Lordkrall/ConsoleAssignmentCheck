@@ -80,8 +80,12 @@ namespace Execise4
                         ex.Exercise14();
                         break;
                     case 15:
+                        Console.Clear();
+                        ex.Exercise15();
                         break;
                     case 16:
+                        Console.Clear();
+                        ex.Exercise16();
                         break;
                     case 17:
                         break;
