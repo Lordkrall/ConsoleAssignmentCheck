@@ -283,6 +283,18 @@ namespace ConsoleAssignmentCheck
             }
             Console.ReadKey();
         }
+        public void Exercise17()
+        {
+            Console.Write("Input a string to check if it is a palindrome: ");
+            string input = Console.ReadLine();
+           string inputToLower = input.ToLowerInvariant();
+            if (inputToLower.SequenceEqual(inputToLower.Reverse()))
+                Console.Write("{0} is a palindrome", input);
+            else
+                Console.Write("{0} is NOT a palindrome", input);
+
+            Console.ReadKey();
+        }
 
         private void IterationMethod(int input)
         {

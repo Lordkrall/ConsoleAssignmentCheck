@@ -5,17 +5,18 @@ namespace Execise4
 {
     class Program
     {
-       
+
         static void Main(string[] args)
         {
-           
+
             Exercises ex = new Exercises();
             while (true)
             {
                 Console.Clear();
                 Console.WriteLine("1. Exercise 1 \n2. Exercise 2 \n3. Exercise 3 \n4. Exercise 4 \n" +
                "5. Exercise 5 \n6. Exercise 6 \n7. Exercise 7 \n8. Exercise 8 \n9. Exercise 9 \n10. Exercise 10 \n11. Exercise 11 \n12. Exercise 12 \n" +
-               "13. Exercise 13 \n14. Exercise 14 \nWhich exercise do you want to check? (-1 to exit)");
+               "13. Exercise 13 \n14. Exercise 14 \n15. Exercise 15 \n16. Exercise 16 \n17. Exercise 17 \n18. Exercise 18 \n19. Exercise 19 \n20. Exercise 20" +
+               "Which exercise do you want to check? (-1 to exit)");
 
                 bool validNumber = int.TryParse(Console.ReadLine(), out int selection);
                 if (!validNumber)
@@ -88,6 +89,8 @@ namespace Execise4
                         ex.Exercise16();
                         break;
                     case 17:
+                        Console.Clear();
+                        ex.Exercise17();
                         break;
                     case 18:
                         break;
