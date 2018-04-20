@@ -8,7 +8,7 @@ namespace ConsoleAssignmentCheck
 {
     public class Exercises
     {
-
+       
         public void Exercise1()
         {
             string firstName = "Jonathan";
@@ -230,7 +230,7 @@ namespace ConsoleAssignmentCheck
                 else
                     isAlive = false;
             }
-            Console.Write("The sum of the added numbers are: {0} \nThe average of the added numbers is: {1}", listOfNumbers.Sum(),listOfNumbers.Average());
+            Console.Write("The sum of the added numbers are: {0} \nThe average of the added numbers is: {1}", listOfNumbers.Sum(), listOfNumbers.Average());
             Console.ReadKey();
 
 
@@ -243,7 +243,7 @@ namespace ConsoleAssignmentCheck
             int.TryParse(Console.ReadLine(), out number);
             for (int i = 1; i < number; i++)
             {
-                if(number % i == 0)
+                if (number % i == 0)
                 {
                     Console.WriteLine(i);
                 }
@@ -271,8 +271,8 @@ namespace ConsoleAssignmentCheck
             int c = 0;
             int number = 0;
             Console.Write("Please insert a number:");
-            int.TryParse(Console.ReadLine(), out number);          
-            
+            int.TryParse(Console.ReadLine(), out number);
+
             Console.Write("{0} {1}", a, b);
             for (int i = 2; i < number; i++)
             {
@@ -287,12 +287,146 @@ namespace ConsoleAssignmentCheck
         {
             Console.Write("Input a string to check if it is a palindrome: ");
             string input = Console.ReadLine();
-           string inputToLower = input.ToLowerInvariant();
+            string inputToLower = input.ToLowerInvariant();
             if (inputToLower.SequenceEqual(inputToLower.Reverse()))
                 Console.Write("{0} is a palindrome", input);
             else
                 Console.Write("{0} is NOT a palindrome", input);
 
+            Console.ReadKey();
+        }
+        public void Exercise18()
+        {
+            int[] intArr = new int[10];
+            double[] doubleArr = new double[10];
+            Random rnd = new Random(DateTime.Now.Millisecond);
+
+            for (int i = 0; i < intArr.Length; i++)
+            {
+                intArr[i] = rnd.Next(100);
+            }
+            for (int i = 0; i < intArr.Length; i++)
+            {
+                doubleArr[i] = 1 / (double)intArr[i];
+
+            }
+            Console.WriteLine("Int-array");
+            foreach (var item in intArr)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Double-array");
+            foreach (var item in doubleArr)
+            {
+                Console.WriteLine(item);
+            }
+
+
+            //foreach (var item in intArr)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            Console.ReadKey();
+        }        
+        public void Exercise19()
+        {
+
+           
+            //int[] moneyArr = new int[] { 1, 2, 5, 10, 50, 100, 200, 500, 1000 };
+            //Random rnd = new Random(DateTime.Now.Millisecond);
+            //int amountToPay = rnd.Next(1000);
+            //Console.WriteLine("The amount to pay is: {0}",amountToPay);
+            ////1,2,5,10,20,50,100,200,500,1000
+            //Console.Write("Money to insert: ");
+
+            //int.TryParse(Console.ReadLine(),out int money);
+            
+            //var change = money - amountToPay;
+            //int numberOfCurrency= 0;
+      
+            //    Console.WriteLine("{0}x{1}SEK", numberOfCurrency, moneyArr[i]);
+            //    numberOfCurrency = 0;
+          
+            
+            //Console.WriteLine("You received a total of {0}SEK in change",change);
+
+            //Console.ReadKey();
+
+        } //TODO: Complete method
+        public void Exercise20()
+        {
+            int[] intArrA = new int[10];
+            int[] intArrB = new int[10];
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            for (int i = 0; i < intArrA.Length; i++)
+            {
+                intArrA[i] = rnd.Next(100);               
+            }
+
+            
+            Console.WriteLine("Array A");
+            foreach (var item in intArrA)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Array B");
+            foreach (var item in intArrB)
+            {
+                Console.WriteLine(item);
+            }
+
+
+            Console.ReadKey();
+        } //TODO: Complete method
+        public void Exercise21()
+        {
+            string[] stringArr;            
+            Console.Write("Please insert a string of comma seperated numbers: ");
+            string input = Console.ReadLine();
+            stringArr = input.Split(',');
+
+            int[] intArr = new int[stringArr.Length];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                int.TryParse(stringArr[i], out int number);
+                intArr[i] = number;
+            }
+            Console.WriteLine("Minimum value: {0}", intArr.Min());
+            Console.WriteLine("Maximum value: {0}", intArr.Max());
+            Console.WriteLine("Average value: {0}", intArr.Average());
+
+            Console.ReadKey();
+        }
+        public void Exercise22()
+        {
+            string[] arrayOfWords = new string[] { "fuck", "shit", "hell", "dick", "cunt", "pussy", "asshole" };
+
+            Console.Write("Please add a string: ");
+            string newString = "";
+           List<string> stringToCheck = Console.ReadLine().Split(' ').ToList();
+
+            //int index = listofelements.IndexOf(oldValue);
+            //if (index != -1)
+            //    listofelements[index] = newValue;
+            foreach (var item in stringToCheck)
+            {
+                if (arrayOfWords.Contains(item))
+                {
+                    int index = stringToCheck.IndexOf(item);
+                    if (index != -1)
+                        stringToCheck[index] = "kitten ";
+                }
+            }
+            foreach (var item in stringToCheck)
+            {
+                Console.Write(" " + item + " ");
+            }
+            
+            //newString = string.Join(" ", stringToCheck);
+           
+
+            Console.WriteLine(newString);
             Console.ReadKey();
         }
 
