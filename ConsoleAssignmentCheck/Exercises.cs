@@ -8,12 +8,28 @@ namespace ConsoleAssignmentCheck
 {
     public class Exercises
     {
-       
+
         public void Exercise1()
         {
             string firstName = "Jonathan";
             string lastName = "Krall";
             Console.WriteLine("Hello {0} {1}! I'm glad to inform you that you are the test subject of my very first assignment!", firstName, lastName);
+            List<string> firstList = new List<string>() { "kalle", "krall", "sven" };
+
+            List<string> secondList = new List<string>();
+
+            Console.WriteLine("First list: ");
+            foreach (var item in firstList)
+            {
+                Console.WriteLine(item);
+            }
+            secondList.AddRange(firstList);
+
+            Console.WriteLine("Second list: ");
+            foreach (var item in secondList)
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadKey();
         }
         public void Exercise2()
@@ -327,11 +343,11 @@ namespace ConsoleAssignmentCheck
             //    Console.WriteLine(item);
             //}
             Console.ReadKey();
-        }        
+        }
         public void Exercise19()
         {
 
-           
+
             //int[] moneyArr = new int[] { 1, 2, 5, 10, 50, 100, 200, 500, 1000 };
             //Random rnd = new Random(DateTime.Now.Millisecond);
             //int amountToPay = rnd.Next(1000);
@@ -340,14 +356,14 @@ namespace ConsoleAssignmentCheck
             //Console.Write("Money to insert: ");
 
             //int.TryParse(Console.ReadLine(),out int money);
-            
+
             //var change = money - amountToPay;
             //int numberOfCurrency= 0;
-      
+
             //    Console.WriteLine("{0}x{1}SEK", numberOfCurrency, moneyArr[i]);
             //    numberOfCurrency = 0;
-          
-            
+
+
             //Console.WriteLine("You received a total of {0}SEK in change",change);
 
             //Console.ReadKey();
@@ -360,10 +376,10 @@ namespace ConsoleAssignmentCheck
             Random rnd = new Random(DateTime.Now.Millisecond);
             for (int i = 0; i < intArrA.Length; i++)
             {
-                intArrA[i] = rnd.Next(100);               
+                intArrA[i] = rnd.Next(100);
             }
 
-            
+
             Console.WriteLine("Array A");
             foreach (var item in intArrA)
             {
@@ -380,7 +396,7 @@ namespace ConsoleAssignmentCheck
         } //TODO: Complete method
         public void Exercise21()
         {
-            string[] stringArr;            
+            string[] stringArr;
             Console.Write("Please insert a string of comma seperated numbers: ");
             string input = Console.ReadLine();
             stringArr = input.Split(',');
@@ -404,7 +420,7 @@ namespace ConsoleAssignmentCheck
 
             Console.Write("Please add a string: ");
             string newString = "";
-           List<string> stringToCheck = Console.ReadLine().Split(' ').ToList();
+            List<string> stringToCheck = Console.ReadLine().Split(' ').ToList();
 
             //int index = listofelements.IndexOf(oldValue);
             //if (index != -1)
@@ -422,13 +438,47 @@ namespace ConsoleAssignmentCheck
             {
                 Console.Write(" " + item + " ");
             }
-            
+
+
+
             //newString = string.Join(" ", stringToCheck);
-           
+
 
             Console.WriteLine(newString);
             Console.ReadKey();
+        } //TODO: Complete method
+        public void Exercise23()
+        {
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            int[] firstArr = new int[7];
+            
+            for (int i = 0; i < firstArr.Length; i++)
+            {
+                int numberToAdd = rnd.Next(1, 10);
+                if (firstArr.Contains(numberToAdd))
+                {
+                    bool exists = true;
+                    while (exists)
+                    {
+                        numberToAdd = rnd.Next(1, 10);
+                        if (!firstArr.Contains(numberToAdd))
+                        {
+                            firstArr[i] = numberToAdd;
+                            exists = false;
+                        }
+                    }
+                }
+                else
+                    firstArr[i] = numberToAdd;
+               
+            }
+            foreach (var item in firstArr)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadKey();
         }
+
 
         private void IterationMethod(int input)
         {
