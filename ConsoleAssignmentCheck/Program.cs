@@ -118,6 +118,10 @@ namespace Execise4
                         Console.Clear();
                         ex.Exercise23();
                         break;
+                    case 24:
+                        Console.Clear();
+                        ex.Exercise24();
+                        break;
                     case -1:
                         Console.Clear();
                         Console.WriteLine("Thank you for using our program, have a nice day!");

@@ -451,7 +451,7 @@ namespace ConsoleAssignmentCheck
         {
             Random rnd = new Random(DateTime.Now.Millisecond);
             int[] firstArr = new int[7];
-            
+
             for (int i = 0; i < firstArr.Length; i++)
             {
                 int numberToAdd = rnd.Next(1, 10);
@@ -470,7 +470,7 @@ namespace ConsoleAssignmentCheck
                 }
                 else
                     firstArr[i] = numberToAdd;
-               
+
             }
             foreach (var item in firstArr)
             {
@@ -478,8 +478,68 @@ namespace ConsoleAssignmentCheck
             }
             Console.ReadKey();
         }
+        public void Exercise24()
+        {
+            int[] deck = new int[] { 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 12, 13, 13, 13, 13 };
+            int[] hand = new int[1];
 
+            bool playing = true;
+            while (playing)
+            {
+                Console.WriteLine("Do you want to draw a card? (y/n)");
+                ConsoleKey pressedKey = Console.ReadKey().Key;
+                Console.Clear();
 
+                if (pressedKey == ConsoleKey.Y)
+                {
+                    if (deck.Length == 0)
+                    {
+                        Console.WriteLine("No more cards available!");
+                        break;
+                    }
+                    ShuffleCards(ref deck);
+                    int drawnCard = DrawCard(ref deck);
+                    Console.WriteLine("You drew: {0}!", drawnCard);
+                    hand[hand.Length - 1] = drawnCard;
+                    Console.WriteLine("You currently have these cards in your hand: ");
+                    foreach (var item in hand)
+                    {
+                        Console.Write(" " + item + " ");
+                    }
+                    Array.Resize(ref hand, hand.Length + 1);
+
+                }
+                else
+                {
+                    playing = false;
+                }
+            }
+            Console.WriteLine("Thank you for playing!");
+            Console.ReadKey();
+        }
+
+        static int DrawCard(ref int[] deck)
+        {
+            int card = 0;
+            //Random rnd = new Random(DateTime.Now.Millisecond);
+            card = deck[0];
+            deck.Reverse();
+            Array.Resize(ref deck, deck.Length - 1);
+
+            return card;
+        }
+
+        static void ShuffleCards(ref int[] deck)
+        {
+            Random r = new Random(DateTime.Now.Millisecond);
+            for (int n = deck.Length - 1; n > 0; --n)
+            {
+                int k = r.Next(n + 1);
+                int temp = deck[n];
+                deck[n] = deck[k];
+                deck[k] = temp;
+            }
+        }
         private void IterationMethod(int input)
         {
             if (input > 0)
