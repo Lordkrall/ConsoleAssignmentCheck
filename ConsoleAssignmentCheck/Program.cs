@@ -26,6 +26,10 @@ namespace Execise4
 
                 switch (selection)
                 {
+                    case 0:
+                        Console.Clear();
+                        ex.ExerciseSpecial();
+                        break;
                     case 1:
                         Console.Clear();
                         ex.Exercise1();

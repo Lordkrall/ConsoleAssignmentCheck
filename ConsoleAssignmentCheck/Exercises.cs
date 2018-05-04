@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,25 @@ namespace ConsoleAssignmentCheck
 {
     public class Exercises
     {
+        
+        public void ExerciseSpecial()
+        {
 
+            StreamReader sr = new StreamReader("input.txt");
+            string s = sr.ReadLine();
+
+            string[] strArr = s.Split('\n');
+
+
+            foreach (var item in strArr)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.ReadKey(); 
+            //StreamReader reader = new StreamReader("input.txt");
+            //reader.
+        }
         public void Exercise1()
         {
             string firstName = "Jonathan";
@@ -16,20 +35,20 @@ namespace ConsoleAssignmentCheck
             Console.WriteLine("Hello {0} {1}! I'm glad to inform you that you are the test subject of my very first assignment!", firstName, lastName);
             List<string> firstList = new List<string>() { "kalle", "krall", "sven" };
 
-            List<string> secondList = new List<string>();
+            //List<string> secondList = new List<string>();
 
-            Console.WriteLine("First list: ");
-            foreach (var item in firstList)
-            {
-                Console.WriteLine(item);
-            }
-            secondList.AddRange(firstList);
+            //Console.WriteLine("First list: ");
+            //foreach (var item in firstList)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //secondList.AddRange(firstList);
 
-            Console.WriteLine("Second list: ");
-            foreach (var item in secondList)
-            {
-                Console.WriteLine(item);
-            }
+            //Console.WriteLine("Second list: ");
+            //foreach (var item in secondList)
+            //{
+            //    Console.WriteLine(item);
+            //}
             Console.ReadKey();
         }
         public void Exercise2()
