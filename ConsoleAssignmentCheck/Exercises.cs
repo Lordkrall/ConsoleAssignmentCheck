@@ -517,18 +517,69 @@ namespace ConsoleAssignmentCheck
             Console.WriteLine("Thank you for playing!");
             Console.ReadKey();
         }
+        public void Exercise25()
+        {
+            Console.Write("Please insert a number: ");
+            int number = InsertNumber(Console.ReadLine());
+            Console.WriteLine(number);
+            Console.ReadKey(); 
+            //            *
+            //            *Create a separate function(from the exercise method) that asks the user to input a valid integer value. The function should keep executing until the user has inputted a valid integer
+            //value.Use a Try -catch combined with a while-loop.If the user inputs a none - valid number, display
+            // an error asking him / her to try again.
+            //   Then in the exercise method, call the method you just wrote twice to retrieve 2 integers from the
+            //   user and store them in variables.Then divide one of the number with the other and use a try-catch
+            //to catch any potential division by zero.Display the result to the screen.
 
+            //Note: Use the correct Exception type, example FormatException, DivideByZeroException and
+            //ArgumentNullException and multiple catch-statements to display a friendly error message
+            //depending on which error occurs.
+
+        }
+
+        static int InsertNumber(string number)
+        {
+            bool isCorrect = false;
+            while (!isCorrect)
+            {
+                try
+                {
+                   int validNumber = int.Parse(number);
+                    return validNumber;
+                }
+                catch (FormatException)
+                {
+
+                    Console.WriteLine("Not a number, please input a number");
+                    Console.ReadKey();
+                    continue;
+                    
+                }
+                catch (ArgumentNullException)
+                {
+                    Console.WriteLine("String is empty, please insert something");
+                    Console.ReadKey();
+                    continue;
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("The number is too large or too small");
+                    Console.ReadKey();
+                    continue;
+                }
+            }
+            
+            return 0;
+        }
         static int DrawCard(ref int[] deck)
         {
             int card = 0;
-            //Random rnd = new Random(DateTime.Now.Millisecond);
             card = deck[0];
             deck.Reverse();
             Array.Resize(ref deck, deck.Length - 1);
 
             return card;
         }
-
         static void ShuffleCards(ref int[] deck)
         {
             Random r = new Random(DateTime.Now.Millisecond);
@@ -573,7 +624,6 @@ namespace ConsoleAssignmentCheck
             else
                 Console.WriteLine("Please enter a number that is greater than 0");
         }
-
         private void ChangeForegroundColor()
         {
             if (Console.ForegroundColor == ConsoleColor.Gray)
@@ -585,7 +635,6 @@ namespace ConsoleAssignmentCheck
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
         }
-
         private string Division(int a, int b)
         {
             string resultString;
