@@ -1,33 +1,77 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Timers;
 
 namespace ConsoleAssignmentCheck
 {
     public class Exercises
     {
-        
+        public static string inputPath = @"C:\Excercise\input.txt";
+        public static string outputPath = @"C:\Excercise\output.txt";
+        public static int nr = 1; 
         public void ExerciseSpecial()
         {
+            //Console.WriteLine("Please insert the message you want to save:");
+            //string message = Console.ReadLine();
+            ////using (StreamReader sr = new StreamReader(inputPath))
+            ////{
+            ////    string line = sr.ReadToEnd();
+            ////    string[] strArr = line.Split(new Char[] { '\n', '\r',',' }, StringSplitOptions.RemoveEmptyEntries);
 
-            StreamReader sr = new StreamReader("input.txt");
-            string s = sr.ReadLine();
+            ////Array.Reverse(strArr);
+            ////foreach (var item in strArr)
+            ////{
+            ////    Console.WriteLine(item);
+            ////}             
 
-            string[] strArr = s.Split('\n');
 
-
-            foreach (var item in strArr)
+            ////string[] strArr = message.Split(new Char[] { '\n', '\r', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            ////if (File.Exists(outputPath))
+            ////{
+            ////    //using (StreamWriter writer = new StreamWriter(outputPath))
+            ////    //{
+            ////        //foreach (string str in strArr)
+            ////        //{
+            ////        //    File.AppendAllText(outputPath, str);
+            ////        //    //writer.WriteLine(str);
+            ////        //    //writer.WriteLine("---");
+            ////        //}
+            ////    //}
+            //if (message == "Clear" || message == "clear")
+            //{
+            //    File.Delete(outputPath);
+            //}
+            //else
+            //{
+            //    File.AppendAllText(outputPath,DateTime.Now + " || " + message + Environment.NewLine);
+            //    Process.Start(outputPath);
+            //}
+            
+            Timer timer = new Timer
             {
-                Console.WriteLine(item);
-            }
-
-            Console.ReadKey(); 
-            //StreamReader reader = new StreamReader("input.txt");
-            //reader.
+                Interval = 10000
+            };         
+            timer.AutoReset = true;
+            timer.Elapsed += new ElapsedEventHandler(WriteToFile);
+            timer.Start();
+            Console.WriteLine("Press any key to cancel logging (Press L to check log)");
+            var input= Console.ReadKey();
+            if (input.Key == ConsoleKey.L)
+                Process.Start(outputPath);
+            else
+                return; 
         }
+
+        private void WriteToFile(object sender, ElapsedEventArgs e)
+        {            
+            File.AppendAllText(outputPath, nr + " || "+ DateTime.Now + Environment.NewLine);
+            nr++;
+        }
+
         public void Exercise1()
         {
             string firstName = "Jonathan";
@@ -541,7 +585,7 @@ namespace ConsoleAssignmentCheck
             Console.Write("Please insert a number: ");
             int number = InsertNumber(Console.ReadLine());
             Console.WriteLine(number);
-            Console.ReadKey(); 
+            Console.ReadKey();
             //            *
             //            *Create a separate function(from the exercise method) that asks the user to input a valid integer value. The function should keep executing until the user has inputted a valid integer
             //value.Use a Try -catch combined with a while-loop.If the user inputs a none - valid number, display
@@ -563,7 +607,7 @@ namespace ConsoleAssignmentCheck
             {
                 try
                 {
-                   int validNumber = int.Parse(number);
+                    int validNumber = int.Parse(number);
                     return validNumber;
                 }
                 catch (FormatException)
@@ -572,7 +616,7 @@ namespace ConsoleAssignmentCheck
                     Console.WriteLine("Not a number, please input a number");
                     Console.ReadKey();
                     continue;
-                    
+
                 }
                 catch (ArgumentNullException)
                 {
@@ -587,7 +631,7 @@ namespace ConsoleAssignmentCheck
                     continue;
                 }
             }
-            
+
             return 0;
         }
         static int DrawCard(ref int[] deck)
