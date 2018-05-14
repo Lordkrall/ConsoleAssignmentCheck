@@ -12,7 +12,7 @@ namespace ConsoleAssignmentCheck
     {
         public static string inputPath = @"C:\Excercise\input.txt";
         public static string outputPath = @"C:\Excercise\output.txt";
-        public static int nr = 1; 
+        public static int nr = 1;
         public void ExerciseSpecial()
         {
             //Console.WriteLine("Please insert the message you want to save:");
@@ -50,25 +50,31 @@ namespace ConsoleAssignmentCheck
             //    File.AppendAllText(outputPath,DateTime.Now + " || " + message + Environment.NewLine);
             //    Process.Start(outputPath);
             //}
-            
+
             Timer timer = new Timer
             {
                 Interval = 10000
-            };         
+            };
             timer.AutoReset = true;
             timer.Elapsed += new ElapsedEventHandler(WriteToFile);
             timer.Start();
             Console.WriteLine("Press any key to cancel logging (Press L to check log)");
-            var input= Console.ReadKey();
+            var input = Console.ReadKey();
             if (input.Key == ConsoleKey.L)
+            {
+                File.AppendAllText(outputPath, Environment.NewLine + "Number of iterations: " + (nr - 1) + Environment.NewLine + "----------------------------------------------------" + Environment.NewLine);
                 Process.Start(outputPath);
+            }
             else
-                return; 
+            {
+                File.AppendAllText(outputPath, Environment.NewLine + "Number of iterations: " + (nr - 1) + Environment.NewLine + "----------------------------------------------------" + Environment.NewLine);
+                return;
+            }
         }
 
         private void WriteToFile(object sender, ElapsedEventArgs e)
-        {            
-            File.AppendAllText(outputPath, nr + " || "+ DateTime.Now + Environment.NewLine);
+        {
+            File.AppendAllText(outputPath, nr + " || " + DateTime.Now + Environment.NewLine);
             nr++;
         }
 
